@@ -1,0 +1,1324 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+
+/* Body styles*/
+body {
+    min-height: 100vh;
+    font-family: 'IBM Plex Sans', sans-serif;
+    background-color: #ffffff;
+    color: #333333;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+    "navbar"
+    "main"
+    "footer";
+}
+
+/* Navigation bar overall structure and styles*/
+nav {
+  width: 100%;
+  background-color: #000000;
+  padding: 40px 45px 40px 45px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: padding 0.6s, background-color 0.6s;
+  z-index: 1000;
+}
+
+/* Sticky state */
+nav.sticky {
+  padding: 5px 75px 5px 45px;
+  background-color: #000000;
+}
+
+/* Left Side Logo */
+.logo {
+    display: flex;
+    align-items: center; /* Center the logo vertically */
+    /* Optional: Add padding or margin to adjust spacing */
+    padding: 0; /* Set padding to zero to prevent overflow */
+    max-width: 100%; /* Ensure the logo doesn't exceed the width of the container */
+    overflow: hidden; /* Prevent overflow */
+}
+
+nav .logo img {
+    height: auto; /* Allow height to adjust naturally */
+    max-height: 150px; /* Control maximum height */
+    width: 100%; /* Ensure the logo uses full width of its container */
+    object-fit: contain; /* Scale the image to maintain its aspect ratio */
+    Transition: max-height 0.3s ease, transform 0.3s ease; /* Smooth transition for height and scale */
+}
+
+nav.sticky .logo img {
+    margin-top: 2%;
+    min-height: 50px; /* Minimum size for minimized logo */
+    max-height: 75px; /* Set a maximum height for the minimized logo */
+    width: 100%; /* Ensure the logo uses full width of its container */
+    object-fit: contain; /* Scale the image to maintain its aspect ratio */
+    Transition: max-height 2s ease, transform 2s ease; /* Smooth transition for height and scale */
+}
+nav:not(.sticky) .logo img {
+  transition: max-height 0.3s ease, transform 0.3s ease; /* Ensure smooth transition when going back to regular size */
+}
+
+/* Right side: search bar and nav links */
+.nav-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Aligns search bar and links to the right */
+}
+
+/* Search bar */
+.search-form {
+  margin-top: 10px; /* Adds space between search bar and nav links */
+}
+
+.search-form input[type="text"] {
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 200px;
+  margin-right: 10px;
+  outline: none;
+}
+
+.search-form button {
+  padding: 5px 10px;
+  background-color: #FF6F3C;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background-color: #FFA060; /* Hover effect */
+}
+
+/* Navigation links */
+nav ul {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px; /* Space between search bar and nav links */
+  margin-bottom: 20px;
+}
+
+nav ul li {
+  list-style: none;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #FFFFFF;
+  letter-spacing: 2px;
+  font-weight: 500;
+  transition: color 0.6s;
+}
+
+nav ul li a:hover {
+  color: #FFD460;
+}
+
+/* Dropdown styles */
+.dropdown {
+  position: relative; /* Ensure dropdown is positioned relative to its parent */
+}
+
+.dropdown:hover .dropdown-content {
+  display: block; /* Show dropdown on hover */
+}
+
+.dropdown-content {
+  display: none; /* Hide by default */
+  position: absolute; /* Position absolutely to parent */
+  background-color: #333333;
+  min-width: 3  00px;
+  top: 100%; /* Position directly below the parent */
+  left: 0; /* Align with the left edge of the parent */
+  z-index: 1;
+  margin-top: 0; /* Remove any margin */
+}
+
+.dropdown-content li {
+  padding: 12px 16px; /* Add padding to dropdown items */
+}
+
+.dropdown-content li a {
+  color: #FFFFFF;
+  text-decoration: none;
+  display: block; /* Ensure links take full width */
+}
+
+.dropdown-content li a:hover {
+  background-color: #FF6F3C; /* Change background on hover */
+}
+
+/* Optional: Styling the parent dropdown link */
+.dropdown > a {
+  position: relative; /* Position for the hover effect */
+}
+
+/* Sidebar container */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0;
+  z-index: 9999;
+  background-color: rgba(20, 20, 20, 0.6); /* Transparent gray background */
+  backdrop-filter: blur(10px); /* Blurring effect */
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: flex-start; /* Start items from the top */
+  align-items: flex-start; /* Align items to the left */
+  height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  transition: width 0.5s ease; /* Smooth transition for expanding sidebar */
+  padding-top: 60px; /* Space at the top of the sidebar */
+}
+
+/* Sidebar list items */
+.sidebar ul {
+  width: 100%;
+  padding: 0; /* Remove default padding */
+  margin-left: 5vw; /* Remove default margin */
+}
+
+.sidebar li {
+  width: 100%;
+  list-style: none;
+  padding: 15px 20px; /* Add some padding for spacing */
+  text-align: left; /* Align text to the left */
+}
+
+.sidebar a {
+  width: 100%;
+  text-decoration: none;
+  color: #fff; /* White text color */
+  font-size: 18px; /* Adjust font size */
+  display: block; /* Ensure the link takes up full width */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.sidebar a:hover {
+  background-color: #FF6F3C; /* Highlight the link on hover */
+}
+
+/* Dropdown inside the sidebar */
+.sidebar .dropdown-content {
+  display: none; /* Hide the dropdown content by default */
+  flex-direction: column; /* Stack dropdown items vertically */
+  background-color: #444; /* Dark background for dropdown */
+  width: 100%; /* Ensure dropdown takes full width */
+  padding-left: 20px; /* Indent dropdown items */
+}
+
+/* Sidebar toggle button inside the sidebar */
+.nav-right .sidebar-toggle {
+  background-color: #FF6F3C;
+  color: white;
+  border: none;
+  padding: 1.5vw;
+  font-size: 5vw;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10vw;
+  align-self: flex-end; /* Align close button to the right */
+}
+
+
+.sidebar .dropdown:hover .dropdown-content {
+  display: flex; /* Show the dropdown on hover */
+}
+
+/* Sidebar closing animation */
+.sidebar a {
+  font-size: 25px;
+  display: block;
+  transition: 0.3s;
+}
+
+/* Sidebar toggle button inside the sidebar */
+.sidebar-toggle {
+  background-color: #FF6F3C;
+  color: white;
+  border: none;
+  padding: 1.5vw;
+  font-size: 5vw;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5vw;
+  margin-left: 10vw;
+  align-self: flex-end; /* Align close button to the right */
+}
+
+/* Show the sidebar button in mobile view and hide the rest */
+@media (max-width: 1100px) {
+  /* Hide the navigation links and search bar in mobile view */
+  .nav-right ul, .search-form {
+    display: none;
+  }
+  
+  /* Make the sidebar toggle button visible */
+  .sidebar-toggle {
+    display: block;
+  }
+
+  /* Sidebar should be initially hidden */
+  .sidebar {
+    width: 0;
+  }
+}
+
+/* Default state for larger screens */
+@media (min-width: 1101px) {
+  
+  /* Hide the sidebar toggle button on larger screens */
+  .sidebar-toggle {
+    display: none;
+  }
+}
+
+
+main .homepage{
+  margin-top: var(--header-height, 28vh); /* Use CSS variable for dynamic margin */
+  grid-area: main;
+  display: grid;
+  grid-template-columns: auto;
+  
+  grid-template-rows: 
+    27vw
+    25vw
+    30vw
+    30vw
+    auto 
+    auto;
+
+  grid-template-areas: 
+    "pitchtag"
+    "vision"
+    "carousel"
+    "faculty"
+    "news";
+}
+
+
+
+.pitchtag
+{
+  grid-area: pitchtag;
+  display: grid;
+  margin: 20px;
+  
+}
+
+.pitchtag img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  z-index: 999;
+}
+
+/* Vision Mission and Quality styles*/
+.vision {
+  grid-area: vision;
+  background-color: #ffffff;
+
+  /* Grid setup with correct column sizes */
+  display: grid;
+  grid-template-columns: 15% 1fr 1fr; /* First column takes 30%, other two take 35% each */
+  gap: 5px;
+  padding: 5px;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+
+}
+
+/* Optional: Specific styles for vision columns */
+.vision .socotec {
+  display: flex; /* Enables flexbox */
+  justify-content: center; /* Optional: horizontally centers the image */
+  align-items: center; /* Vertically centers the image */
+  height: 100%; /* Ensures the container takes the full height of the grid cell */
+}
+
+.vision .socotec img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  z-index: 999;
+}
+
+.vision .vismiss,
+.vision .quality {
+  display: flex; /* Enables flexbox for centering */
+  flex-direction: column; /* Align items vertically */
+  justify-content: center; /* Vertically centers content */
+  align-items: left; /* Horizontally centers content */
+  text-align: justify; /* Centers text */
+  padding: 10px; /* Adds some padding for aesthetics */
+}
+
+.vision .vismiss h1,
+.vision .quality h1 {
+  font-size:  3vw; /* Use variable for font size */
+  font-weight: bolder;
+  color: #FF6F3C; /* Use variable for font color */
+}
+
+.vision .vismiss p,
+.vision .quality p {
+  padding-left: 5%;
+  font-size: 1.2vw; /* Use variable for font size */
+  color: #000000; /* Use variable for font color */ 
+}
+
+/* Carousel styles */
+.carousel {
+  grid-area: carousel;
+  display: flex; /* Change to flex for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  padding: 2%; /* Adjust as needed for spacing */
+  box-sizing: border-box; /* Ensure padding is included in width/height calculations */
+
+  /* Background Image Styles */
+  background-image: url('images/Carousel BG.png'); /* Set the background image */
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the background from repeating */
+}
+
+.slider {
+  width: 100%;
+  max-width: 100vw;
+  height: 100%; /* Set a fixed height for the slider */
+  max-height: 100%; /* Maximum height for larger screens */
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.slider .list {
+  position: absolute;
+  width: max-content;
+  height: 100%; /* Ensure it takes up the full height of the slider */
+  left: 0;
+  top: 0;
+  display: flex;
+  transition: 0.5s;
+}
+
+.slider .list img {
+  width: 100vw; /* Adjust to take up full viewport width */
+  height: 100%; /* Ensure the image takes up the full height of the slider */
+  object-fit: cover; /* Maintain aspect ratio, cropping excess */
+}
+
+.slider .buttons {
+  position: absolute;
+  top: 45%;
+  left: 5%;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider .buttons button {
+  width: 8vw; /* Responsive width */
+  height: 8vw; /* Responsive height to maintain a square */
+  max-width: 50px; /* Maximum size */
+  max-height: 50px; /* Maximum size */
+  border-radius: 50%;
+  background-color: #ff703c9c;
+  color: #fff;
+  border: none;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.slider .dots {
+  position: absolute;
+  bottom: 1vh;
+  left: 0;
+  color: #fff;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.slider .dots li {
+  list-style: none;
+  width: 2vw; /* Responsive size for dots */
+  height: 2vh; /* Responsive size for dots */
+  max-width: 10px; /* Maximum size */
+  max-height: 10px; /* Maximum size */
+  background-color: #fff;
+  margin: 0 5px; /* Adjust for spacing */
+  border-radius: 20px;
+  transition: 0.5s;
+}
+
+.slider .dots li.active {
+  width: 4vw; /* Active dot size */
+  height: 4vh; /* Active dot size */
+  background-color: #FF6F3C;
+}
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 1100) {
+  .slider {
+    height: 300px; /* Set a lower height for mobile */
+  }
+
+  .slider .list img {
+    width: 100vw; /* Adjust to the viewport width */
+    height: 100%; /* Ensure images take up the full slider height */
+  }
+}
+
+
+/* Faculty styles */
+.faculty {
+  grid-area: faculty;
+  background-color: #ffffff;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  padding: 5px;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+
+}
+
+.faculty .faculty_link {
+  display: flex; /* Enables flexbox for centering */
+  flex-direction: column; /* Align items vertically */
+  justify-content: center; /* Vertically centers content */
+  align-items: left; /* Horizontally centers content */
+  text-align: justify; /* Centers text */
+  padding: 10px; /* Adds some padding for aesthetics */
+}
+
+.faculty .featured_faculty {
+  display: grid; /* Enables flexbox for centering */
+  grid-template-columns: 35% 1fr;
+  gap: 5px;
+  padding: 5px;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+.faculty .featured_faculty .featured_pic{
+  display: flex;
+  height: 100%;
+}
+
+.faculty .featured_faculty .featured_pic img{
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  z-index: 999;
+}
+
+.faculty .featured_faculty .featured_info{
+  display: flex; /* Enables flexbox for centering */
+  flex-direction: column; /* Align items vertically */
+  justify-content: center; /* Vertically centers content */
+  align-items: left; /* Horizontally centers content */
+  text-align: justify; /* Centers text */
+  padding: 10px; /* Adds some padding for aesthetics */
+}
+
+.faculty .faculty_link h1{
+  font-size:  3vw; /* Use variable for font size */
+  padding-left: 5%;
+  font-weight: bolder;
+  color: #FF6F3C; /* Use variable for font color */
+  padding-bottom: 5%;
+}
+
+.faculty .faculty_link p{
+  padding-left: 5%;
+  padding-bottom: 8%;
+  font-size: 1.5vw; /* Use variable for font size */
+  color: #000000; /* Use variable for font color */ 
+}
+
+.faculty .faculty_link li{
+  margin-left: 5%;
+  text-decoration: none;
+  list-style: none;
+  background-color: #FF6F3C;
+  text-align: center;
+  max-width: 30vw;
+  border-radius: 5px;
+  
+}
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+  margin: 0.5em;
+  
+  fill: currentColor; /* Makes the SVG adopt the current text color */
+}
+
+.faculty .faculty_link li a{
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 2vw ;
+}
+
+
+.faculty .featured_faculty h3 {
+  padding-left: 5%;
+  padding-bottom: 10%;
+  margin-right: 5%;
+  font-size: 1.5vw; /* Use variable for font size */
+  color: #000000; /* Use variable for font color */
+  font-weight:500;
+  text-decoration: underline;
+  text-decoration-color: #FF6F3C;
+  text-decoration-thickness: 15%;
+}
+
+.faculty .featured_faculty h2 {
+  padding-left: 5%;
+  padding-bottom: 5%;
+  margin-right: 5%;
+  font-size: 1.5vw; /* Use variable for font size */
+  color: #000000; /* Use variable for font color */
+  font-weight:500;
+}
+
+.faculty .featured_faculty p {
+  padding-left: 5%;
+  margin-right: 5%;
+  font-size: 1.2vw; /* Use variable for font size */
+  color: #000000; /* Use variable for font color */
+  font-style: italic;
+}
+
+/* News styles */
+.news {
+  grid-area: news;
+  background-color: #FFEFE9; 
+}
+
+.news .news_header {
+  min-height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('images/News Header BG.png'); /* Set the background image */
+  background-size: cover; /* Cover the entire area */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the background from repeating */
+}
+
+.news .news_header h1 {
+  font-size: 3vw;
+  font-weight: bolder;
+  color: #FF6F3C;
+}
+
+.news .news_body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Card styles */
+.news .news_body .card {
+  padding: 5%;
+  margin: 10%;
+  background-color: #FFF;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.news .news_body .card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.news .news_body .card h2 {
+  font-size: 2vw;
+  color: #FF6F3C;
+  margin: 10px;
+  text-align: left;
+}
+
+.news .news_body .card p {
+  font-size: 1.2vw;
+  color: #333;
+  margin: 10px;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+/* Footer Styles*/
+
+footer{
+  grid-area: footer;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: 
+  "footer_name"
+  "top_footer"
+  "bot_footer";
+  gap: 5px;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+footer .footer_name{
+  display: flex;
+  padding: 1vw;
+}
+
+footer .footer_name .PRMSU_footer{
+  margin-right: 1%;
+  margin-left: 11vw;
+  font-size: 2vh;
+}
+footer .footer_name .COE_footer{
+  margin-right: 1%;
+  font-size: 2vh;
+  color: #FF6F3C;
+}
+
+footer .top_footer{
+  grid-area: top_footer;
+  padding: 2vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-right: 10vw;
+  margin-left: 10vw;
+  margin-bottom: 5vh;
+  gap: 5px;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+footer .top_footer h2{
+  font-style: normal;
+  font-size: 4vh;
+  font-weight: 200;
+  margin-bottom: 5vh;
+}
+
+footer .top_footer h4{
+  font-style: normal;
+  font-weight: 200;
+  font-size: 2.5vh;
+  
+}
+
+footer .top_footer .contact h4{
+  margin-bottom: 1vh;
+}
+
+footer .top_footer li{
+  list-style: none;
+  margin-bottom: 1vh;
+}
+
+footer .top_footer li a{
+  font-style: normal;
+  font-weight: 200;
+  text-decoration: none;
+  color: #FF6F3C;
+  font-size: 2.5vh;
+}
+
+footer .bot_footer{
+  display: flex;
+  min-height: 20vh;
+  justify-content: center; /* Vertically centers content */
+  align-items: center; /* Horizontally centers content */
+  background-color: #FF6F3C;
+}
+
+footer .bot_footer h3{
+  margin-left: 1%;
+  font-size: 2vw;
+  font-style: italic;
+  font-weight: 400;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+footer .bot_footer img{
+  width: 7vw;
+  height: auto;
+  object-fit: fill;
+  z-index: 999;
+  margin-right: 1%;
+}
+
+.svg-icon-footer {
+  width: 1em;
+  height: 1em;
+  margin-left: 0.5em;
+  fill: currentColor; /* Makes the SVG adopt the current text color */
+}
+
+/*Curricular Offerings styles*/
+main .curriculum {
+  margin-top: var(--header-height, 28vh); /* Use CSS variable for dynamic margin */
+}
+
+.curricular_offer{
+  grid-area: faculty;
+  background-color: #FFEFE9;
+  
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+  gap: 5px;
+  padding: 5px;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 100vh;
+
+}
+
+/*side_nav_file styles*/
+.curricular_offer .side_nav_file{
+  flex-direction: column; /* Align items vertically */
+  justify-content:start; /* Vertically centers content */
+  align-items: left; /* Horizontally centers content */
+  text-align:start; /* Centers text */
+  padding: 1vw; /* Adds some padding for aesthetics */
+  padding-left: 2vw;
+  background-color: #FFFFFF;
+  margin: 2%;
+  border-radius: 2%;
+}
+
+.side_nav_file h1{
+  color: #FF6F3C;
+  font-style: bold;
+  font-size: 4vh;
+  font-weight: 1vw;
+  margin-top: 2vh;
+  margin-bottom: 3vh;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.side_nav_file .collapsible {
+  background-color: #f0f0f0;
+  color: #FF6F3C;
+  cursor: pointer;
+  padding: 3%;
+  width: 100%;
+  border: none; 
+  text-align: left;
+  outline: none;
+  font-size: 2vh;
+  font-weight: 2vw;
+  font-style: bold;
+  border-radius: 1vh;
+  margin-top: 3%;
+}
+
+
+.side_nav_file .active, .collapsible:hover {
+  background-color: #FF6F3C;
+  color: #FFFFFF;
+  border-radius: 1vh;
+}
+
+.side_nav_file .content {
+    padding-left: 5%;
+    display: none;
+    overflow: hidden;
+    flex-direction: column;
+    margin-top: 1vh;
+    margin-left: 2vw;
+}
+
+.side_nav_file .content .collapsible {
+  background-color: #f0f0f0;
+  padding: 3%;
+  color: #FF6F3C;
+  cursor: pointer;
+  width: 100%;
+  border: none; 
+  text-align: left;
+  outline: none;
+  font-size: 2vh;
+  font-weight: 1vw;
+  font-style: bold;
+  border-radius: 1vh;
+}
+
+.side_nav_file .content .active, .collapsible:hover {
+  background-color: #FF6F3C;
+  color: #FFFFFF;
+  border-radius: 1vh;
+}
+
+.side_nav_file .content button {
+  display: block; /* Stack buttons vertically */
+  width: 100%; /* Optional: makes buttons full width */
+  margin-bottom: 1vh; /* Adds space between buttons */
+  background-color: #f0f0f0;
+  color: #FF6F3C;
+  text-align: left;
+  outline: none;
+  padding: 2%;
+  font-size: 2vh;
+  font-weight: 1vw;
+  font-style: bold;
+  border-radius: 1vh;
+}
+
+/* PDF viewer Panel Styles */
+.curricular_offer .pdf_viewer {
+  display: flex; /* Enables flexbox for centering */
+  flex-direction: column; /* Align items vertically */
+  justify-content: flex-start; /* Start from the top */
+  align-items: stretch; /* Stretch to fill the container */
+  text-align: justify; /* Centers text */
+  background-color: #FFFFFF;
+  padding: 1%; /* Adds some padding for aesthetics */
+  height: 100%; /* Make sure the viewer takes up the full height of its container */
+  border-radius: 1%;
+}
+
+#pdf-viewer {
+  flex: 1; /* Allow the iframe to grow and fill the remaining space */
+  width: 100%; /* Full width of the container */
+  border: none; /* Remove default border */
+}
+
+
+/*Research Paper styles*/
+main .research {
+  margin-top: var(--header-height, 28vh); /* Use CSS variable for dynamic margin */
+}
+
+.research_papers{
+  grid-area: faculty;
+  background-color: #FFEFE9;
+  
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+  gap: 5px;
+  padding: 5px;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 100vh;
+
+}
+
+/*side_nav_file styles*/
+.research_papers .side_nav_file{
+  flex-direction: column; /* Align items vertically */
+  justify-content:start; /* Vertically centers content */
+  align-items: left; /* Horizontally centers content */
+  text-align:start; /* Centers text */
+  padding: 1vw; /* Adds some padding for aesthetics */
+  padding-left: 2vw;
+  background-color: #FFFFFF;
+  margin: 2%;
+  border-radius: 2%;
+}
+
+.research_papers .side_nav_file h1{
+  color: #FF6F3C;
+  font-style: bold;
+  font-size: 4vh;
+  font-weight: 1vw;
+  margin-top: 2vh;
+  margin-bottom: 3vh;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.research_papers .side_nav_file button {
+  background-color: #f0f0f0;
+  color: #FF6F3C;
+  cursor: pointer;
+  padding: 3%;
+  width: 100%;
+  border: none; 
+  text-align: left;
+  outline: none;
+  font-size: 2vh;
+  font-weight: 2vw;
+  font-style: bold;
+  border-radius: 1vh;
+  margin-top: 3%;
+}
+
+
+
+/* PDF viewer Panel Styles */
+.research_papers .pdf_viewer {
+  display: flex; /* Enables flexbox for centering */
+  flex-direction: column; /* Align items vertically */
+  justify-content: flex-start; /* Start from the top */
+  align-items: stretch; /* Stretch to fill the container */
+  text-align: justify; /* Centers text */
+  background-color: #FFFFFF;
+  padding: 1%; /* Adds some padding for aesthetics */
+  height: 100%; /* Make sure the viewer takes up the full height of its container */
+  border-radius: 1%;
+}
+
+
+
+
+/* Responsive Design for Mobile */
+@media screen and (max-width: 1100px) {
+  
+  /* Main layout adjustments */
+  main .homepage{
+    grid-template-rows: auto; /* Adjust rows for a single-column layout */
+  }
+
+  /* Pitch tag section responsive */
+  .pitchtag {
+    display: block; /* Stack content vertically */
+    margin: 10px;
+  }
+  .pitchtag img {
+    width: 100%;
+    height: auto;
+    object-fit:fill;
+    z-index: 999;
+  }
+  /* Vision & Mission section responsive */
+  .vision {
+    grid-template-columns: 1fr; /* Stack columns vertically */
+    gap: 0px;
+    padding: 0px;
+    background-color: #FFEFE9 ;
+  }
+
+  .vision .socotec img{
+    margin-top: 5%;
+    width: 40%;
+    height: auto;
+    object-fit: cover;
+    z-index: 999;
+  }
+  .vision .vismiss{
+    width: 100%; /* Ensure full width for each column */
+    padding-bottom: 0;
+  }
+  .vision .quality{
+    width: 100%; /* Ensure full width for each column */
+    padding-top: 0;
+  }
+  
+  .vision .vismiss h1{
+    font-size: 3.5vw; /* Adjust font size */
+
+  }
+  .vision .quality h1{
+    font-size: 3.5vw; /* Adjust font size */
+  }
+  .vision .vismiss p,
+  .vision .quality p {
+    font-size: 2vw; /* Adjust font size */
+
+  }
+
+  /* Carousel section responsive */
+  .carousel {
+    padding: 5%;
+  }
+
+  .slider .list img {
+    width: 100vw; /* Ensure full width */
+  }
+
+  /* Faculty section responsive */
+  .faculty {
+    grid-template-columns: 1fr; /* Stack columns vertically */
+    gap: 10px;
+  }
+
+  .faculty .faculty_link h1{
+  font-size: 3.5vw;
+  padding: 0;
+}
+
+.faculty .faculty_link p{
+  padding-left: 3%;
+  padding-bottom: 1%;
+  font-size: 2vw; /* Use variable for font size */
+}
+
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+  margin: 0.5em;
+  
+  fill: currentColor; /* Makes the SVG adopt the current text color */
+}
+
+.faculty .faculty_link li a{
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 2vw ;
+}
+
+
+.faculty .featured_faculty h3 {
+  font-size: 3.5vw;
+}
+
+.faculty .featured_faculty h2 {
+  font-size: 3vw;
+}
+
+.faculty .featured_faculty p {
+  font-size: 2vw;
+}
+
+/* News section already responsive, adjusting font sizes */
+.news .news_header h1 {
+  font-size: 6vw; /* Adjust font size */
+}
+
+.news .news_body .card h2 {
+  font-size: 4vw; /* Adjust font size */
+}
+
+.news .news_body .card p {
+  font-size: 3.5vw; /* Adjust font size */
+}
+
+footer .footer_name .PRMSU_footer{
+  font-size: 2vw;
+}
+footer .footer_name .COE_footer{
+  font-size: 2vw;
+}
+
+footer .top_footer{
+  margin-bottom: 0;
+}
+
+footer .top_footer h2{
+  font-size: 3.5vw;
+}
+
+footer .top_footer h4{
+  font-size: 2.5vw;
+}
+
+footer .top_footer li{
+  margin-bottom: 0.5vh;
+}
+
+footer .top_footer li a{
+  font-size: 2.5vw;
+}
+
+footer .bot_footer{
+  display: flex;
+  min-height: 10vh;
+  justify-content: center; /* Vertically centers content */
+  align-items: center; /* Horizontally centers content */
+  background-color: #FF6F3C;
+}
+
+footer .bot_footer h3{
+  font-size: 3.5vw;
+}
+
+footer .bot_footer img{
+  width: 10vw;
+}
+
+
+.nav-links ul {
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.header-container {
+  flex-direction: column;
+  align-items: flex-start;
+}
+nav ul {
+  flex-direction: column;
+}
+.dropdown-content {
+  position: relative;
+}
+
+.news .news_header {
+min-height: 5vh;
+display: flex;
+align-items: center;
+justify-content: center;
+background-image: url('images/News Header BG.png'); /* Set the background image */
+background-size: cover; /* Cover the entire area */
+background-position: center; /* Center the background image */
+background-repeat: no-repeat; /* Prevent the background from repeating */
+}
+
+.news .news_body .card h2 {
+font-size: calc(0.7rem + 1vw);
+color: #FF6F3C;
+margin: 10px;
+text-align: left;
+}
+.news .news_body .card p {
+font-size: calc(0.5rem + 1vw);
+color: #333;
+margin: 10px;
+line-height: 1.5;
+text-align: justify;
+}
+
+main .homepage{
+grid-area: main;
+display: grid;
+grid-template-columns: auto;
+
+grid-template-rows: 
+  auto
+  auto
+  auto
+  auto
+  auto 
+  auto;
+
+grid-template-areas: 
+  "pitchtag"
+  "vision"
+  "carousel"
+  "faculty"
+  "news";
+}
+
+img {
+width: 100%;
+height: auto;
+
+
+}
+}
+
+.ibm-plex-sans-thin {
+  font-family: "IBM Plex Sans", system-ui;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.ibm-plex-sans-extralight {
+  font-family: "IBM Plex Sans", system-ui;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.ibm-plex-sans-light {
+  font-family: "IBM Plex Sans", system-ui;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.ibm-plex-sans-regular {
+  font-family: "IBM Plex Sans", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ibm-plex-sans-medium {
+  font-family: "IBM Plex Sans", system-ui;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.ibm-plex-sans-semibold {
+  font-family: "IBM Plex Sans", system-ui;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.ibm-plex-sans-bold {
+  font-family: "IBM Plex Sans", system-ui;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.ibm-plex-sans-thin-italic {
+  font-family: "IBM Plex Sans", system-ui;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.ibm-plex-sans-extralight-italic {
+  font-family: "IBM Plex Sans", system-ui;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.ibm-plex-sans-light-italic {
+  font-family: "IBM Plex Sans", system-ui;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.ibm-plex-sans-regular-italic {
+  font-family: "IBM Plex Sans", system-ui;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.ibm-plex-sans-medium-italic {
+  font-family: "IBM Plex Sans", system-ui;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.ibm-plex-sans-semibold-italic {
+  font-family: "IBM Plex Sans", system-ui;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.ibm-plex-sans-bold-italic {
+  font-family: "IBM Plex Sans", system-ui;
+  font-weight: 700;
+  font-style: italic;
+}
+

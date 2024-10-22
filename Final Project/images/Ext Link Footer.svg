@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18.035" height="18.035" viewBox="0 0 18.035 18.035">
+  <g id="Link_Button_Icon_Footer" data-name="Link Button Icon Footer" transform="translate(18.035 18.035) rotate(180)">
+    <path id="Arrow_Icon_Path" data-name="Arrow Icon Path" d="M15.217,0H2.818A2.821,2.821,0,0,0,0,2.818v12.4a2.821,2.821,0,0,0,2.818,2.818h12.4a2.821,2.821,0,0,0,2.818-2.818V2.818A2.821,2.821,0,0,0,15.217,0Zm1.691,15.217a1.691,1.691,0,0,1-1.691,1.691H2.818a1.691,1.691,0,0,1-1.691-1.691V2.818A1.691,1.691,0,0,1,2.818,1.127h12.4a1.691,1.691,0,0,1,1.691,1.691Z" fill="#ff6f3c"/>
+    <path id="Outer_Box_Icon_Path" data-name="Outer Box Icon Path" d="M16.874,5.293,7.127,15.039V11.891H6V16.4a.564.564,0,0,0,.564.564h4.509V15.836H7.924L17.67,6.09Z" transform="translate(-2.618 -2.31)" fill="#ff6f3c"/>
+  </g>
+</svg>

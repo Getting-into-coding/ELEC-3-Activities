@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRMSU College of Engineering</title>
+    <link rel="stylesheet" href="COE_website.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/images/circular logo.png">
+</head>
+<body>
+    <!--Nav Bar-->
+    <nav>
+        <!-- Left Side Logo -->
+        <a class="logo">
+            <img id="logo" src="images/Header Logo.png" alt="College of Engineering">
+        </a>
+
+        <!-- Right Side: Search bar and Navigation Links -->
+        <div class="nav-right">
+            <!-- Search Bar -->
+            <form action="https://www.google.com/search" method="GET" class="search-form">
+                <input type="text" name="q" placeholder="Search the site..." aria-label="Search">
+                <input type="hidden" name="sitesearch" value="yoursite.com"> <!-- Replace with your domain -->
+                <button type="submit">Search</button>
+            </form>
+
+            <!-- Navigation Links -->
+            <ul>
+                <li><a href="COE_homepage.html">Home</a></li>
+                <li class="dropdown"><a href="#">Instruction</a>
+                    <ul class="dropdown-content">
+                        <li><a href="COE_curricular.html">Curricular Offerings</a></li>
+                        <li><a href="COE_faculty.html">Faculty</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="COE_research.html">Research</a>
+                    <ul class="dropdown-content">
+                        <li><a href="COE_res_CE.html">BSCE Researches</a></li>
+                        <li><a href="COE_res_CpE.html">BSCpE Researches</a></li>
+                        <li><a href="COE_res_ME.html">BSME Researches</a></li>
+                        <li><a href="COE_res_EE.html">BSEE Researches</a></li>
+                        <li><a href="COE_res_EM.html">BSEM Researches</a></li>
+                    </ul>
+                </li>
+                <li><a href="COE_extension.html">Extension</a></li>
+                <li><a href="COE_history.html">History</a></li>
+            </ul>
+            <!-- Sidebar Toggle Button (visible only on mobile) -->
+            <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+            
+        </div>
+
+        <script type="text/javascript">
+            window.addEventListener("scroll", function(){
+                var nav = document.querySelector("nav");                
+                var logo = document.getElementById("logo");
+                
+                if (window.scrollY > 50) {
+                    nav.classList.add("sticky");
+                    logo.src = "images/Header Logo Minimized.png"; // Minimized logo when scrolled
+                } else {
+                    nav.classList.remove("sticky");
+                    logo.src = "images/Header Logo.png"; // Regular logo when at the top
+                }
+            
+            })
+        </script>
+    </nav>
+
+    <!-- Sidebar for mobile view -->
+    <div class="sidebar" id="mobileSidebar">
+        <!-- Sidebar Toggle Button (visible only on mobile) -->
+        <button class="sidebar-toggle" onclick="toggleSidebar()">✕</button>
+        <!-- Sidebar Navigation Links (copied from the main nav) -->
+        <ul class="sidebar-links">
+            <li><a href="COE_homepage.html">Home</a></li>
+            <li class="dropdown"><a href="#">Instruction</a>
+                <ul class="dropdown-content">
+                    <li><a href="COE_curricular.html">Curricular Offerings</a></li>
+                    <li><a href="COE_faculty.html">Faculty</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"><a href="COE_research.html">Research</a>
+                <ul class="dropdown-content">
+                    <li><a href="COE_res_CE.html">BSCE Researches</a></li>
+                    <li><a href="COE_res_CpE.html">BSCpE Researches</a></li>
+                    <li><a href="COE_res_ME.html">BSME Researches</a></li>
+                    <li><a href="COE_res_EE.html">BSEE Researches</a></li>
+                    <li><a href="COE_res_EM.html">BSEM Researches</a></li>
+                </ul>
+            </li>
+            <li><a href="COE_extension.html">Extension</a></li>
+            <li><a href="COE_history.html">History</a></li>
+        </ul>        
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("mobileSidebar");
+            if (sidebar.style.width === "0px" || sidebar.style.width === "") {
+                sidebar.style.width = "90vw";
+            } else {
+                sidebar.style.width = "0";
+            }
+        }
+    </script>
+
+    <!--Main Body-->
+    <main>
+        <section class="curriculum">
+            <section class="curricular_offer">
+                    <div class="side_nav_file">
+                        <h1>Curricular Offerings</h1>
+                        
+                        <!-- Parent Button -->
+                        <button type="button" class="collapsible"> | Curriculum</button>
+                        <div class="content">
+                            <!--Sub Parent Button-->
+                            <button type="button" class="collapsible"> | Civil Engineering Department</button>
+                                <div class="content">
+                                <!-- Child buttons, innermost buttons -->
+                                    <button onclick="viewGoogleDrivePDF('1dAxJiHzIfv6htUOxCNrbk-bxUfF7X28I')">Civil Engineering 2022</button>
+                                    <button onclick="viewGoogleDrivePDF('1IDMuf4xRgCHvWchZGmHHCI8T6XDV2rI0')">Civil Engineering 2019</button>
+                                    <button onclick="viewGoogleDrivePDF('1PiETznugHPxM_sfhCu5jz40QSoqpBSx0')">Civil Engineering 2018 (STEM)</button>
+                                    <button onclick="viewGoogleDrivePDF('1NMIBRoesUtYFBcwrEBkWPnJ6aKAqDDMe')">Civil Engineering 2018 (NON-STEM)</button>
+                                </div>
+                            <!--Sub Parent Button-->
+                            <button type="button" class="collapsible"> | Computer Engineering Department</button>
+                                <div class="content">
+                                <!-- Child buttons, innermost buttons -->
+                                    <button onclick="viewGoogleDrivePDF('1uoopTW6_3ilw7qkzFTO0VgObgS96TtPQ')">Computer Engineering 2022</button>
+                                    <button onclick="viewPDF('pdf/No_Document.pdf')">Computer Engineering 2019</button>
+                                    <button onclick="viewGoogleDrivePDF('1gb9F1AjD0ZDIyK0rHltQg5Vzz0a2ia3z')">Computer Engineering 2018</button>
+                                </div>
+                            
+                            <button type="button" class="collapsible"> | Mechanical Engineering Department</button>
+                                <div class="content">
+                            <!-- Child buttons, innermost buttons -->
+                                    <button onclick="viewGoogleDrivePDF('1_ohlfVvqBD2BVIU3iI1xAJXe8tN67pxn')">Mechanical Engineering 2022</button>
+                                    <button onclick="viewGoogleDrivePDF('1qIRVGwAu4GZJbLNw8PRsArWFI_y_DXBY')">Mechanical Engineering 2019</button>
+                                    <button onclick="viewGoogleDrivePDF('1iPmxV6OHfDDlV5JZmDzfngqvjPDF-kfp')">Mechanical Engineering 2018 (STEM)</button>
+                                    <button onclick="viewGoogleDrivePDF('1QWS1lT3bmBREKOYPhTT1IOw-kW2eI-r9')">Mechanical Engineering 2018 (NON-STEM)</button>
+                                </div>   
+
+                            <button type="button" class="collapsible"> | Electrical Engineering Department</button>
+                                <div class="content">
+                            <!-- Child buttons, innermost buttons -->
+                                    <button onclick="viewGoogleDrivePDF('1L7vvkXEFR4IZ_-YJfMCr5oUjOJGyBand')">Electrical Engineering 2022</button>
+                                    <button onclick="viewGoogleDrivePDF('1LN2HKQoYfgk0vAALgU9VDPaRtPQ2iEhi')">Electrical Engineering 2019</button>
+                                    <button onclick="viewGoogleDrivePDF('1Mondhpb6XfCz4c6eiAIBlCaChTH7vofL')">Electrical Engineering 2018 (STEM)</button>
+                                    <button onclick="viewGoogleDrivePDF('13XBB9Q3Azof4-OJ1COD13ZPGTEaPl2VZ')">Electrical Engineering 2018 (NON-STEM)</button>
+                                </div>
+                            
+                            <button type="button" class="collapsible"> | Mining Engineering Department</button>
+                                <div class="content">
+                            <!-- Child buttons, innermost buttons -->
+                                <button onclick="viewPDF('pdf/No_Document.pdf')">Mining Engineering 202X</button>
+                                </div>
+
+                        </div>
+
+                        <button type="button" class="collapsible"> | CMO</button>
+                        <div class="content">
+                            <button onclick="viewGoogleDrivePDF('1ZH8c4FtWYCm8Nr4K_vpJQIwBj21ouwMF')">Civil Engineering CMO</button>
+                            <button onclick="viewGoogleDrivePDF('1MfQptZCp0ntYegS9wuhrsBzaq0eQ36lb')">Computer Engineering CMO</button>
+                            <button onclick="viewGoogleDrivePDF('13MkQIMg18aMg15J5GcpQ22gxoi4E-WhN')">Mechanical Engineering CMO</button>
+                            <button onclick="viewGoogleDrivePDF('1qLqbyQsWhAR4IApHhksulj6FhU9msxt5')">Electrical Engineering CMO</button>
+                            <button onclick="viewGoogleDrivePDF('1G80jfNY3p823SDnztj9GnFhS3KI8dwSe')">Mining Engineering CMO</button>
+                        </div>
+                    </div>
+
+                    <div class="pdf_viewer">
+                            <iframe id="pdf-viewer" src="" frameborder="0"></iframe>
+                    </div>
+            </section>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer_name">
+            <div class="PRMSU_footer">
+                <h1>
+                    PRMSU
+                </h1>
+            </div>
+            <div class="COE_footer">
+                <h1>
+                    College of Engineering
+                </h1>
+            </div>
+            
+        </div>
+        <div class="top_footer">
+            <div class="address">
+                <h2>
+                    Address
+                </h2>
+                 <h4>
+                    Zone 6 Baytan,
+                 </h4>
+                 <h4>
+                    Palanginan, Iba,
+                 </h4>
+                 <h4>
+                    Zambales, Philippines
+                 </h4>
+            </div>
+            <div class="social">
+                <h2>
+                    Social Media
+                </h2>
+                <li>
+                    <a href="https://www.facebook.com/prmsucoe">
+                    Facebook Page
+                    <img src="images/Ext Link Footer.svg" alt="External Link Icon" class="svg-icon-footer">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/THECOEFFICIENTSPRMSU">
+                    The COEfficients
+                    <img src="images/Ext Link Footer.svg" alt="External Link Icon" class="svg-icon-footer">
+                    </a>
+                </li>
+            </div>
+            <div class="contact">
+                <h2>
+                    Contact Us
+                </h2>
+                <h4>
+                    online.coe@prmsu.edu.ph
+                </h4>
+                <h4>
+                    (+63) 919 069 9177
+                </h4>
+            </div>
+        </div>
+        <div class="bot_footer">
+            <img id="logo" src="images/Circular Logo.png" alt="College of Engineering">
+            <h3>PRMSU College of Engineering © 2024 <br>
+                All rights reserved</h3>
+            <img id="logo" src="images/Empty.png" alt="College of Engineering">
+        </div>
+    </footer>
+    <!-- Script -->
+    <script src="COE_curricular.js"></script>
+</body>
+</html>
+
+<!-- Code for button for local pdf-->
+<!---->
