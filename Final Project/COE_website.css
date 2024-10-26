@@ -302,7 +302,7 @@ main .homepage{
     27vw
     25vw
     30vw
-    30vw
+    auto
     auto 
     auto;
 
@@ -497,7 +497,8 @@ main .homepage{
 .faculty {
   grid-area: faculty;
   background-color: #ffffff;
-
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5px;
@@ -778,6 +779,7 @@ footer .bot_footer h3{
   color: #FFFFFF;
 }
 
+
 footer .bot_footer img{
   width: 7vw;
   height: auto;
@@ -998,6 +1000,183 @@ main .research {
 
 
 
+/* Research Styles */
+main .researchpage{
+  margin-top: var(--header-height, 23vh); /* Use CSS variable for dynamic margin */
+  grid-area: main;
+  display: grid;
+  grid-template-columns: auto;
+  
+  grid-template-rows: 
+    auto
+    auto
+    auto 
+    auto;
+
+  grid-template-areas: 
+    "header_img"
+    "res_link"
+    "faculty"
+    "news";
+}
+
+
+/* Header_img Style */
+.header_img
+{
+  grid-area: header_img;
+  display: grid;
+  margin: 20px;
+  
+}
+
+.header_img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  z-index: 999;
+}
+
+/* Res_link Style */
+.res_link {
+  display: flex;
+  justify-content: center; /* Centers the cards horizontally */
+  flex-wrap: wrap; /* Allows cards to wrap onto the next line */
+  padding: 2%; /* Adds some padding for aesthetics */
+}
+
+.res_link h1{
+  font-size:  3vw; /* Use variable for font size */
+  font-weight: bolder;
+  color: #FF6F3C; /* Use variable for font color */
+  padding-bottom: 1%;
+}
+
+.res_link ul {
+  list-style-type: none; /* Removes default list styling */
+  padding: 0; /* Removes default padding */
+  margin: 0; /* Removes default margin */
+  display: flex; /* Enables flexbox for the list */
+  flex-wrap: wrap; /* Allows items to wrap */
+  justify-content: center; /* Centers the list items */
+}
+
+.res_link li {
+  margin: 10px; /* Adds space between cards */
+  flex: 0 1 15vw; /* Allows the li to adapt to the card width */
+}
+
+.linkcard {
+  display: flex;
+  flex-direction: column; /* Stack image and text vertically */
+  align-items: center; /* Center aligns the content */
+  text-decoration: none; /* Removes underline from links */
+  background-color: #ffffff; /* White background for card */
+  border: 1px solid #ccc; /* Light border for card */
+  border-radius: 2%; /* Rounded corners */
+  width: 100%; /* Use full width of li */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow: hidden; /* Ensures no overflow */
+}
+
+.res_img {
+  width: 100%; /* Image takes full width of card */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Ensures the image covers the area */
+}
+
+.linkcard span {
+  padding: 5%; /* Padding for text */
+  font-size: 1.5vh; /* Font size for text */
+  color: #333; /* Text color */
+  text-align: center; /* Center align text */
+  background-color: #FF6F3C; /* Background color for text */
+  color: white; /* Text color */
+  width: 100%; /* Ensure text background takes full width */
+}
+
+/* Research Documents Style */
+.research_main {
+  grid-area: faculty;
+  background-color: #FFCFBE; 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  padding: 5px;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+}
+
+.research_main .research_left_link {
+  display: flex; /* Enables flexbox for centering */
+  flex-direction: column; /* Align items vertically */
+  justify-content: center; /* Vertically centers content */
+  align-items: left; /* Horizontally centers content */
+  text-align: justify; /* Centers text */
+  padding: 10px; /* Adds some padding for aesthetics */
+  overflow: hidden;
+
+}
+
+.research_main .research_left_link ul {
+  display: flex; /* Enables flexbox for the list */
+  flex-wrap: wrap; /* Allows items to wrap onto the next line */
+  padding: 0; /* Removes default padding */
+}
+
+.research_main .research_left_link li {
+  margin-left: 0; /* Reset left margin */
+  margin-right: 5%; /* Add right margin for spacing */
+  margin-bottom: 5%; /* Add bottom margin for spacing */
+  flex: 0 0 48%; /* Allow each item to take up to 48% of the width */
+  box-sizing: border-box; /* Ensure padding and margin are included in width */
+}
+
+.research_main .research_left_link h1{
+  font-size:  3vw; /* Use variable for font size */
+  padding-left: 5%;
+  font-weight: bolder;
+  color: #FF6F3C; /* Use variable for font color */
+  padding-bottom: 5%;
+}
+
+.research_main .research_left_link p{
+  padding-left: 5%;
+  padding-bottom: 8%;
+  font-size: 1.5vw; /* Use variable for font size */
+  color: #000000; /* Use variable for font color */ 
+}
+
+.research_main .research_left_link li{
+  margin-left: 5%;
+  text-decoration: none;
+  list-style: none;
+  background-color: #FF6F3C;
+  text-align: center;
+  max-width: 30vw;
+  border-radius: 5px;
+  margin: 1%;
+  
+}
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+  margin: 0.5em;
+  
+  fill: currentColor; /* Makes the SVG adopt the current text color */
+}
+
+.research_main .research_left_link li a{
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 1.5vw ;
+}
 
 /* Responsive Design for Mobile */
 @media screen and (max-width: 1100px) {
@@ -1322,3 +1501,31 @@ height: auto;
   font-style: italic;
 }
 
+/*  .--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--.  */
+/* / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \ */
+/* \ \/\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ \/ / */
+/*  \/ /`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\/ /  */
+/*  / /\                                                                            / /\  */
+/* / /\ \     ___          _          _   _                                        / /\ \ */
+/* \ \/ /    / __\___   __| | ___  __| | | |__  _   _ _                            \ \/ / */
+/*  \/ /    / /  / _ \ / _` |/ _ \/ _` | | '_ \| | | (_)                            \/ /  */
+/*  / /\   / /__| (_) | (_| |  __/ (_| | | |_) | |_| |_                             / /\  */
+/* / /\ \  \____/\___/ \__,_|\___|\__,_| |_.__/ \__, (_)                           / /\ \ */
+/* \ \/ /                                       |___/                              \ \/ / */
+/*  \/ /       ___            _      _   _____           _                          \/ /  */
+/*  / /\      /   \__ _ _ __ (_) ___| | / _  / __ _  ___| |__   __ _ _ __ _   _     / /\  */
+/* / /\ \    / /\ / _` | '_ \| |/ _ \ | \// / / _` |/ __| '_ \ / _` | '__| | | |   / /\ \ */
+/* \ \/ /   / /_// (_| | | | | |  __/ |  / //\ (_| | (__| | | | (_| | |  | |_| |   \ \/ / */
+/*  \/ /   /___,' \__,_|_| |_|_|\___|_| /____/\__,_|\___|_| |_|\__,_|_|   \__, |    \/ /  */
+/*  / /\                                                                  |___/     / /\  */
+/* / /\ \                                              _                           / /\ \ */
+/* \ \/ /    /\/\       /\/\   ___ _ __ ___ _   _ _ __(_) ___                      \ \/ / */
+/*  \/ /    /    \     /    \ / _ \ '__/ __| | | | '__| |/ _ \                      \/ /  */
+/*  / /\   / /\/\ \_  / /\/\ \  __/ | | (__| |_| | |  | | (_) |                     / /\  */
+/* / /\ \  \/    \(_) \/    \/\___|_|  \___|\__,_|_|  |_|\___/                     / /\ \ */
+/* \ \/ /                                                                          \ \/ / */
+/*  \/ /                                                                            \/ /  */
+/*  / /\.--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--./ /\  */
+/* / /\ \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \/\ \ */
+/* \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' / */
+/*  `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'  */
