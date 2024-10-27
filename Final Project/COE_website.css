@@ -1027,7 +1027,8 @@ main .researchpage{
   grid-area: header_img;
   display: grid;
   margin: 20px;
-  
+  align-items: center;
+  justify-items: center;
 }
 
 .header_img img {
@@ -1035,6 +1036,13 @@ main .researchpage{
   height: auto;
   object-fit: cover;
   z-index: 999;
+}
+
+.header_img h1{
+  font-size:  3vw; /* Use variable for font size */
+  font-weight: bolder;
+  color: #FF6F3C; /* Use variable for font color */
+  padding-bottom: 1%;
 }
 
 /* Res_link Style */
@@ -1171,6 +1179,89 @@ main .researchpage{
 }
 
 .research_main .research_left_link li a{
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 1.5vw ;
+}
+
+/* Extension Style */
+.extension_main {
+  grid-area: faculty;
+  background-color: #FFCFBE; 
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+  padding: 5px;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+}
+
+.extension_main .extension_links {
+  display: flex; /* Enables flexbox for centering */
+  flex-direction: column; /* Align items vertically */
+  justify-content: center; /* Vertically centers content */
+  align-items: left; /* Horizontally centers content */
+  text-align: justify; /* Centers text */
+  padding: 10px; /* Adds some padding for aesthetics */
+  overflow: hidden;
+
+}
+
+.extension_main .extension_links ul {
+  display: flex; /* Enables flexbox for the list */
+  flex-wrap: wrap; /* Allows items to wrap onto the next line */
+  padding: 0; /* Removes default padding */
+}
+
+.extension_main .extension_links li {
+  margin-left: 0; /* Reset left margin */
+  margin-right: 5%; /* Add right margin for spacing */
+  margin-bottom: 5%; /* Add bottom margin for spacing */
+  flex: 0 0 48%; /* Allow each item to take up to 48% of the width */
+  box-sizing: border-box; /* Ensure padding and margin are included in width */
+}
+
+.extension_main .extension_links h1{
+  font-size:  3vw; /* Use variable for font size */
+  padding-left: 1%;
+  font-weight: bolder;
+  color: #FF6F3C; /* Use variable for font color */
+  padding-bottom: 1%;
+}
+
+.extension_main .extension_links p{
+  padding-left: 5%;
+  padding-bottom: 8%;
+  font-size: 1.5vw; /* Use variable for font size */
+  color: #000000; /* Use variable for font color */ 
+}
+
+.extension_main .extension_links li{
+  margin-left: 5%;
+  text-decoration: none;
+  list-style: none;
+  background-color: #FF6F3C;
+  text-align: center;
+  max-width: 30vw;
+  border-radius: 5px;
+  margin: 1%;
+  
+}
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+  margin: 0.5em;
+  
+  fill: currentColor; /* Makes the SVG adopt the current text color */
+}
+
+.extension_main .extension_links li a{
   display: inline-flex;
   align-items: center;
   text-decoration: none;
