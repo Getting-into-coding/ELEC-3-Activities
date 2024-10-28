@@ -1103,6 +1103,31 @@ main .researchpage{
   width: 100%; /* Ensure text background takes full width */
 }
 
+.researchpage .linkcard {
+  display: flex;
+  flex-direction: column; /* Stack image and text vertically */
+  align-items: center; /* Center aligns the content */
+  text-decoration: none; /* Removes underline from links */
+  background-color: #ffffff; /* White background for card */
+  border: 1px solid #ccc; /* Light border for card */
+  border-radius: 2%; /* Rounded corners */
+  min-width: max-content;
+  width: 100%; /* Use full width of li */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow: hidden; /* Ensures no overflow */
+}
+
+.researchpage .linkcard span {
+  padding: 5%; /* Padding for text */
+  font-size: 2.5vh; /* Font size for text */
+  color: #333; /* Text color */
+  text-align: center; /* Center align text */
+  background-color: #FF6F3C; /* Background color for text */
+  color: white; /* Text color */
+  width: 100%; /* Ensure text background takes full width */
+  overflow: hidden;
+}
+
 /* Research Documents Style */
 .research_main {
   grid-area: faculty;
