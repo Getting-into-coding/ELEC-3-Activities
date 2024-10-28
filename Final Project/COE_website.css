@@ -1026,7 +1026,7 @@ main .researchpage{
 {
   grid-area: header_img;
   display: grid;
-  margin: 20px;
+
   align-items: center;
   justify-items: center;
 }
@@ -1126,7 +1126,6 @@ main .researchpage{
   text-align: justify; /* Centers text */
   padding: 10px; /* Adds some padding for aesthetics */
   overflow: hidden;
-
 }
 
 .research_main .research_left_link ul {
@@ -1267,6 +1266,103 @@ main .researchpage{
   text-decoration: none;
   color: #FFFFFF;
   font-size: 1.5vw ;
+}
+
+/* History Style */
+.history_main_1 {
+  background-color: #FFCFBE; 
+  display: flex; /* Enables flexbox for centering */
+  flex-direction: column; /* Align items vertically */
+  justify-content: center; /* Vertically centers content */
+  align-items: left; /* Horizontally centers content */
+  text-align: justify; /* Centers text */
+  padding: 10px; /* Adds some padding for aesthetics */
+  overflow: hidden;
+}
+
+.history_main_1 .hist_body {
+  grid-area: hist_body;
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
+  gap: 5px;
+  padding: 5px;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+}
+
+.history_main_1 h1{
+  font-size:  3vw; /* Use variable for font size */
+  padding-left: 1%;
+  font-weight: bolder;
+  color: #FF6F3C; /* Use variable for font color */
+  padding-top: 1%;
+}
+
+.history_main_1 h3{
+  font-size:  1.5vw; /* Use variable for font size */
+  padding-left: 2%;
+  font-weight: normal;
+  color: #000000; /* Use variable for font color */
+  padding-bottom: 1%;
+}
+
+.history_main_2 {
+  background-color: #FFFFFF; 
+  display: flex; /* Enables flexbox for centering */
+  flex-direction: column; /* Align items vertically */
+  justify-content: center; /* Vertically centers content */
+  align-items: left; /* Horizontally centers content */
+  text-align: justify; /* Centers text */
+  padding: 10px; /* Adds some padding for aesthetics */
+  overflow: hidden;
+}
+
+.history_main_2 .hist_body {
+  grid-area: hist_body;
+  display: grid;
+  grid-template-columns: 0.3fr 1fr;
+  gap: 5px;
+  padding: 5px;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+}
+
+.history_main_2 h1{
+  font-size:  3vw; /* Use variable for font size */
+  padding-left: 1%;
+  font-weight: bolder;
+  color: #FF6F3C; /* Use variable for font color */
+  padding-top: 1%;
+}
+
+.history_main_2 h3{
+  font-size:  1.5vw; /* Use variable for font size */
+  padding-left: 1%;
+  font-weight: normal;
+  color: #000000; /* Use variable for font color */
+  padding-bottom: 1%;
+}
+
+.footer_img
+{
+  grid-area: header_img;
+  display: grid;
+  margin: 0;
+  align-items: center;
+  justify-items: center;
+}
+
+.footer_img img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  z-index: 999;
 }
 
 /* Responsive Design for Mobile */
