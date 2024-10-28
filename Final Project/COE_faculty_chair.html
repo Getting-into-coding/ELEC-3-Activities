@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRMSU College of Engineering</title>
+    <link rel="stylesheet" href="COE_website.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/images/circular logo.png">
+</head>
+<body>
+    <!--Nav Bar-->
+    <nav>
+        <!-- Left Side Logo -->
+        <a class="logo">
+            <img id="logo" src="images/Header Logo.png" alt="College of Engineering">
+        </a>
+
+        <!-- Right Side: Search bar and Navigation Links -->
+        <div class="nav-right">
+            <!-- Search Bar -->
+            <form action="https://www.google.com/search" method="GET" class="search-form">
+                <input type="text" name="q" placeholder="Search the site..." aria-label="Search">
+                <input type="hidden" name="sitesearch" value="yoursite.com"> <!-- Replace with your domain -->
+                <button type="submit">Search</button>
+            </form>
+
+            <!-- Navigation Links -->
+            <ul>
+                <li><a href="COE_homepage.html">Home</a></li>
+                <li class="dropdown"><a href="COE_instruction.html">Instruction</a>
+                    <ul class="dropdown-content">
+                        <li><a href="COE_curricular.html">Curricular Offerings</a></li>
+                        <li><a href="COE_faculty.html">Faculty</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="COE_research.html">Research</a>
+                    <ul class="dropdown-content">
+                        <li><a href="COE_res_CE.html">BSCE Researches</a></li>
+                        <li><a href="COE_res_CpE.html">BSCpE Researches</a></li>
+                        <li><a href="COE_res_ME.html">BSME Researches</a></li>
+                        <li><a href="COE_res_EE.html">BSEE Researches</a></li>
+                        <li><a href="COE_res_EM.html">BSEM Researches</a></li>
+                    </ul>
+                </li>
+                <li><a href="COE_extension.html">Extension</a></li>
+                <li><a href="COE_history.html">History</a></li>
+            </ul>
+            <!-- Sidebar Toggle Button (visible only on mobile) -->
+            <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+            
+        </div>
+
+        <script type="text/javascript">
+            window.addEventListener("scroll", function(){
+                var nav = document.querySelector("nav");                
+                var logo = document.getElementById("logo");
+                
+                if (window.scrollY > 50) {
+                    nav.classList.add("sticky");
+                    logo.src = "images/Header Logo Minimized.png"; // Minimized logo when scrolled
+                } else {
+                    nav.classList.remove("sticky");
+                    logo.src = "images/Header Logo.png"; // Regular logo when at the top
+                }
+            
+            })
+        </script>
+    </nav>
+
+    <!-- Sidebar for mobile view -->
+    <div class="sidebar" id="mobileSidebar">
+        <!-- Sidebar Toggle Button (visible only on mobile) -->
+        <button class="sidebar-toggle" onclick="toggleSidebar()">✕</button>
+        <!-- Sidebar Navigation Links (copied from the main nav) -->
+        <ul class="sidebar-links">
+            <li><a href="COE_homepage.html">Home</a></li>
+            <li class="dropdown"><a href="COE_instruction.html">Instruction</a>
+                <ul class="dropdown-content">
+                    <li><a href="COE_curricular.html">Curricular Offerings</a></li>
+                    <li><a href="COE_faculty.html">Faculty</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"><a href="COE_research.html">Research</a>
+                <ul class="dropdown-content">
+                    <li><a href="COE_res_CE.html">BSCE Researches</a></li>
+                    <li><a href="COE_res_CpE.html">BSCpE Researches</a></li>
+                    <li><a href="COE_res_ME.html">BSME Researches</a></li>
+                    <li><a href="COE_res_EE.html">BSEE Researches</a></li>
+                    <li><a href="COE_res_EM.html">BSEM Researches</a></li>
+                </ul>
+            </li>
+            <li><a href="COE_extension.html">Extension</a></li>
+            <li><a href="COE_history.html">History</a></li>
+        </ul>        
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("mobileSidebar");
+            if (sidebar.style.width === "0px" || sidebar.style.width === "") {
+                sidebar.style.width = "90vw";
+            } else {
+                sidebar.style.width = "0";
+            }
+        }
+    </script>
+
+    <!--Main Body-->
+    <main>
+        <section class="faculty_site">
+            <section class="faculty_side">
+                    <div class="side_nav_faculty">
+                        <h1>Faculty</h1>
+
+                        <ul class="sidebar-links">
+                            <li><a href="COE_faculty.html"> | College Dean</a></li>
+                            <li><a href="COE_faculty_chair.html"> | Program Chair Persons</a></li>                            
+                            <button type="button" class="collapsible"> | Faculty Members</button>
+                                <div class="content">
+                                    <li><a href="COE_faculty_CE.html"> | Civil Engineering Department</a></li>
+                                    <li><a href="COE_faculty_CpE.html"> | Computer Engineering Department</a></li>
+                                    <li><a href="COE_faculty_ME.html"> | Mechanical Engineering Department</a></li>
+                                    <li><a href="COE_faculty_EE.html"> | Electrical Engineering Department</a></li>
+                                    <li><a href="COE_faculty_EM.html"> | Mining Engineering Department</a></li>
+                                    <li><a href="COE_faculty_AL.html"> | Allied and General Education Department</a></li>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="container_chair">
+                        <section class="chair_slide">
+                            <div class="hist_body">
+                                <img class="res_img" src="images/Chair/TABLIGAN.jpg" alt="Civil Engineer Chairperson">
+                            </div>
+                            <div>
+                                <h1>BS Civil Engineering</h1>
+                                <h2>FERDINAND D. TABLIGAN, RCE, M.Eng. </h2>
+                                <h3>
+                                    &emsp; Content to be published soon...
+                                </h3>
+                            </div>
+                        </section>
+                        <section class="chair_slide">
+                            <div class="hist_body">
+                                <img class="res_img" src="images/Chair/MARAVE.jpg" alt="Computer Engineer Chairperson">
+                            </div>
+                            <div>
+                                <h1>BS Computer Engineering</h1>
+                                <h2>MELOJEAN C. MARAVE, LPT, MSIT</h2>
+                                <h3>
+                                    &emsp; Engr. Melojean C. Marave has an extensive educational background, 
+                                    including a Doctorate in Information Technology from the Technological Institute
+                                     of the Philippines and a Doctor of Education Major in Educational Management from 
+                                     Ramon Magsaysay Technological University, Iba Campus. She holds a Master of Science
+                                      in Information Technology from the Polytechnic University of the Philippines – 
+                                      Sta. Mesa, Manila. Additionally, she completed a Post-Baccalaureate Certificate 
+                                      in Professional Education at Ramon Magsaysay Technological University Main Campus 
+                                      Iba, Zambales, and a Trade Course in IT Course Design and Development from the 
+                                      National Computer Center, National Computer Institute, Diliman Q.C. Engr. Marave 
+                                      finished CISCO Certified Network Associate Exploration 1, 2, 3, and 4 modules 
+                                      from UP Information Technology Training Center, UP Diliman Q.C. She earned her 
+                                      Bachelor of Science in Computer Engineering in October 2001. Engr. Marave 
+                                      currently serves as the BS Computer Engineering Program Chairperson at PRMSU 
+                                      Iba, Zambales, and has been actively involved in various faculty and extension 
+                                      roles within the university, with a special highlight on community extension. 
+                                      She is a licensed professional teacher and holds professional memberships with 
+                                      Colleges and Universities in the Philippines and the Institute of Computer 
+                                      Engineers of the Philippines as a Professional Member. An Accreditor of the 
+                                      Accrediting Agency of Chartered Colleges and Universities in the Philippines 
+                                      (AACCUP) and Internal Auditor of the International Standard Organization (ISO). 
+                                      Additionally, she has contributed significantly to youth leadership programs and 
+                                      has received recognition for her outstanding contributions and leadership. 
+                                </h3>
+                            </div>
+                        </section>
+                        <section class="chair_slide">
+                            <div class="hist_body">
+                                <img class="res_img" src="images/Chair/DEDICATORIA.jpg" alt="Mechanical Engineer Chairperson">
+                            </div>
+                            <div>
+                                <h1>BS Mechanical Engineering</h1>
+                                <h2>MARLON JAMES A. DEDICATORIA, RMEE, Ph.D.</h2>
+                                <h3>
+                                    &emsp; Dr. Marlon James A. Dedicatoria is a licensed mechanical engineer and 
+                                    currently serves as the Vice President for Research and Development, as well as 
+                                    the Chairperson of the Mechanical Engineering Program at President Ramon Magsaysay 
+                                    State University (PRMSU) in Iba, Zambales. With over ten years of teaching 
+                                    experience, he has been instructing professional courses within the Bachelor of 
+                                    Science in Mechanical Engineering (BSME) program at PRMSU's College of Engineering. 
+                                    Additionally, he holds a lecturing position at the university's graduate school, 
+                                    where he teaches mathematics courses.
+                                    <br><br>
+                                    &emsp; Dr. Dedicatoria earned his Bachelor of Science degree in Mechanical Engineering 
+                                    from Ramon Magsaysay Technological University in 2006. Subsequently, he pursued 
+                                    his Master of Science in Mechanical Design and Systems Engineering at Andong 
+                                    National University, South Korea, graduating in 2010. He furthered his academic 
+                                    pursuits by completing his PhD in Mechanical Design and Systems Engineering from 
+                                    Andong National University in 2013. Following his doctoral studies, he served as 
+                                    a post-doctoral fellow at the same university's Materials Behavior Evaluation 
+                                    Laboratory under the guidance of Prof. Hyung-Seop Shin from 2013 to 2014.
+                                    <br><br>
+                                    &emsp; His research publications primarily focus on the electromechanical property 
+                                    evaluation of high-temperature superconductors. Presently, Dr. Dedicatoria holds 
+                                    the position of Professor 3 at PRMSU.
+                                </h3>
+                            </div>
+                        </section>
+                        <section class="chair_slide">
+                            <div class="hist_body">
+                                <img class="res_img" src="images/Chair/DEBOMA.jpg" alt="Electrical Engineer Chairperson">
+                            </div>
+                            <div>
+                                <h1>BS Electrical Engineering</h1>
+                                <h2>GILBERT D. DEBOMA, REE, M.Eng.</h2>
+                                <h3>
+                                    &emsp; Engr Gilbert D. Deboma is a faculty of the College of Engineering for 
+                                    24 years with an Academic Rank of Associate Professor V. He is a graduate of 
+                                    Bachelor of Science in Electrical Engineering at Technological Institute of the 
+                                    Philippines – Quezon City. He finished his Master of Science in Electronics 
+                                    Engineering at Andong National University – South Korea. He is currently taking 
+                                    up PhD in Agricultural Engineering at Central Luzon State University. Engr Deboma 
+                                    is an active member of the Institute of Integrated Electrical Engineers, Inc., 
+                                    the accredited professional organization of electrical practitioners of the 
+                                    Philippines.  He is the current dean of the College of Engineering and concurrent 
+                                    Program Chairperson of the Electrical Engineering Department.
+                                </h3>
+                            </div>
+                        </section>
+                        <section class="chair_slide">
+                            <div class="hist_body">
+                                <img class="res_img" src="images/Chair/DESIERTO.png" alt="Mining Engineer Chairperson">
+                            </div>
+                            <div>
+                                <h1>BS Mining Engineering</h1>
+                                <h2>DOROTHY JOYCE SOLPICO DESIERTO</h2>
+                                <h3>
+                                    &emsp; Content to be published soon...
+                                </h3>
+                            </div>
+                        </section>
+                    </div>
+            </section>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer_name">
+            <div class="PRMSU_footer">
+                <h1>
+                    PRMSU
+                </h1>
+            </div>
+            <div class="COE_footer">
+                <h1>
+                    College of Engineering
+                </h1>
+            </div>
+            
+        </div>
+        <div class="top_footer">
+            <div class="address">
+                <h2>
+                    Address
+                </h2>
+                 <h4>
+                    Zone 6 Baytan,
+                 </h4>
+                 <h4>
+                    Palanginan, Iba,
+                 </h4>
+                 <h4>
+                    Zambales, Philippines
+                 </h4>
+            </div>
+            <div class="social">
+                <h2>
+                    Social Media
+                </h2>
+                <li>
+                    <a href="https://www.facebook.com/prmsucoe">
+                    Facebook Page
+                    <img src="images/Ext Link Footer.svg" alt="External Link Icon" class="svg-icon-footer">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/THECOEFFICIENTSPRMSU">
+                    The COEfficients
+                    <img src="images/Ext Link Footer.svg" alt="External Link Icon" class="svg-icon-footer">
+                    </a>
+                </li>
+            </div>
+            <div class="contact">
+                <h2>
+                    Contact Us
+                </h2>
+                <h4>
+                    online.coe@prmsu.edu.ph
+                </h4>
+                <h4>
+                    (+63) 919 069 9177
+                </h4>
+            </div>
+        </div>
+        <div class="bot_footer">
+            <img id="logo" src="images/Circular Logo.png" alt="College of Engineering">
+            <h3>PRMSU College of Engineering © 2024 <br>
+                All rights reserved</h3>
+            <img id="logo" src="images/Empty.png" alt="College of Engineering">
+        </div>
+    </footer>
+    <!-- Script -->
+    <script src="COE_curricular.js"></script>
+</body>
+</html>
+
+<!--  .--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--.  -->
+<!-- / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \ -->
+<!-- \ \/\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ \/ / -->
+<!--  \/ /`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\/ /  -->
+<!--  / /\                                                                            / /\  -->
+<!-- / /\ \     ___          _          _   _                                        / /\ \ -->
+<!-- \ \/ /    / __\___   __| | ___  __| | | |__  _   _ _                            \ \/ / -->
+<!--  \/ /    / /  / _ \ / _` |/ _ \/ _` | | '_ \| | | (_)                            \/ /  -->
+<!--  / /\   / /__| (_) | (_| |  __/ (_| | | |_) | |_| |_                             / /\  -->
+<!-- / /\ \  \____/\___/ \__,_|\___|\__,_| |_.__/ \__, (_)                           / /\ \ -->
+<!-- \ \/ /                                       |___/                              \ \/ / -->
+<!--  \/ /       ___            _      _   _____           _                          \/ /  -->
+<!--  / /\      /   \__ _ _ __ (_) ___| | / _  / __ _  ___| |__   __ _ _ __ _   _     / /\  -->
+<!-- / /\ \    / /\ / _` | '_ \| |/ _ \ | \// / / _` |/ __| '_ \ / _` | '__| | | |   / /\ \ -->
+<!-- \ \/ /   / /_// (_| | | | | |  __/ |  / //\ (_| | (__| | | | (_| | |  | |_| |   \ \/ / -->
+<!--  \/ /   /___,' \__,_|_| |_|_|\___|_| /____/\__,_|\___|_| |_|\__,_|_|   \__, |    \/ /  -->
+<!--  / /\                                                                  |___/     / /\  -->
+<!-- / /\ \                                              _                           / /\ \ -->
+<!-- \ \/ /    /\/\       /\/\   ___ _ __ ___ _   _ _ __(_) ___                      \ \/ / -->
+<!--  \/ /    /    \     /    \ / _ \ '__/ __| | | | '__| |/ _ \                      \/ /  -->
+<!--  / /\   / /\/\ \_  / /\/\ \  __/ | | (__| |_| | |  | | (_) |                     / /\  -->
+<!-- / /\ \  \/    \(_) \/    \/\___|_|  \___|\__,_|_|  |_|\___/                     / /\ \ -->
+<!-- \ \/ /                                                                          \ \/ / -->
+<!--  \/ /                                                                            \/ /  -->
+<!--  / /\.--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--./ /\  -->
+<!-- / /\ \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \/\ \ -->
+<!-- \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' / -->
+<!--  `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'  -->

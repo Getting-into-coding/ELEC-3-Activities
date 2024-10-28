@@ -1365,6 +1365,249 @@ main .researchpage{
   z-index: 999;
 }
 
+
+/*Faculty webpage styles*/
+main .faculty_site {
+  margin-top: var(--header-height, 28vh); /* Use CSS variable for dynamic margin */
+}
+
+.faculty_side{
+  grid-area: faculty;
+  background-color: #FFEFE9;
+  
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+  gap: 5px;
+  padding: 2% 2% 7% 2%;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 100vh;
+
+}
+
+/*faculty_side styles*/
+.faculty_side .side_nav_faculty{
+  flex-direction: column; /* Align items vertically */
+  justify-content:start; /* Vertically centers content */
+  align-items: left; /* Horizontally centers content */
+  text-align:start; /* Centers text */
+  padding: 1vw; /* Adds some padding for aesthetics */
+  padding-left: 2vw;
+  background-color: #FFFFFF;
+  margin: 2%;
+  border-radius: 2%;
+}
+
+.side_nav_faculty h1{
+  color: #FF6F3C;
+  font-style: bold;
+  font-size: 4vh;
+  font-weight: 1vw;
+  margin-top: 2vh;
+  margin-bottom: 3vh;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.side_nav_faculty .collapsible {
+  background-color: #f0f0f0;
+  color: #FF6F3C;
+  cursor: pointer;
+  padding: 3%;
+  width: 100%;
+  border: none; 
+  text-align: left;
+  outline: none;
+  font-size: 3vh;
+  font-weight: 2vw;
+  border-radius: 1vh;
+}
+
+
+.side_nav_faculty .active, .collapsible:hover {
+  background-color: #FF6F3C;
+  color: #FFFFFF;
+  border-radius: 1vh;
+}
+
+.side_nav_faculty .content {
+    padding-left: 5%;
+    display: none;
+    overflow: hidden;
+    flex-direction: column;
+    margin-top: 1vh;
+    margin-left: 2vw;
+}
+
+.side_nav_faculty .content .collapsible {
+  background-color: #f0f0f0;
+  padding: 3%;
+  color: #FF6F3C;
+  cursor: pointer;
+  width: 100%;
+  border: none; 
+  text-align: left;
+  outline: none;
+  font-size: 3vh;
+  font-weight: 1vw;
+  border-radius: 1vh;
+}
+
+.side_nav_faculty .content .active, .collapsible:hover {
+  background-color: #FF6F3C;
+  color: #FFFFFF;
+  border-radius: 1vh;
+}
+
+
+.side_nav_faculty li:hover,
+.side_nav_faculty li:hover a{
+  background-color: #FF6F3C; /* Change background color on hover */
+  color: #FFFFFF; /* Change text color on hover */
+}
+
+
+.side_nav_faculty li {
+  display: block; /* Stack buttons vertically */
+  width: 100%; /* Optional: makes buttons full width */
+  height: 100%;
+  margin-bottom: 1vh; /* Adds space between buttons */
+  background-color: #f0f0f0;
+  color: #FF6F3C;
+  text-align: left;
+  outline: none;
+  padding: 3%;
+  border-radius: 1vh;
+}
+
+.side_nav_faculty a {
+  display: block; /* Stack buttons vertically */
+  margin-bottom: 1vh; /* Adds space between buttons */
+  background-color: #f0f0f0;
+  color: #FF6F3C;
+  text-align: left;
+  outline: none;
+  text-decoration: none;
+  font-size: 3vh;
+  font-weight: 2vw;
+  font-style: bold;
+  border-radius: 1vh;
+}
+
+
+/* Faculty Dean Panel Styles */
+.faculty_site .container {
+  display: flex; /* Enables flexbox for centering */
+  flex-direction: column; /* Align items vertically */
+  justify-content: flex-start; /* Start from the top */
+  align-items: stretch; /* Stretch to fill the container */
+  text-align: justify; /* Centers text */
+  background-color: #FFFFFF;
+  padding: 1% 5%; /* Adds some padding for aesthetics */
+  height: 100%; /* Make sure the viewer takes up the full height of its container */
+  border-radius: 1%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.container h5 {
+  text-align: justify; /* Centers text */
+  background-color: #FFFFFF;
+  color: #000000;
+  font-weight: 300;
+  margin-top: 5%;
+  font-size: 3vh;
+  padding: 2% 0 5% 0;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+  object-fit:contain;
+}
+
+/* Faculty Chair Panel Styles */
+.faculty_site .container_chair {
+  display: flex; /* Enables flexbox for centering */
+  flex-direction: column; /* Align items vertically */
+  justify-content: flex-start; /* Start from the top */
+  align-items: stretch; /* Stretch to fill the container */
+  text-align: justify; /* Centers text */
+  background-color: #FFFFFF;
+  padding: 2%; /* Adds some padding for aesthetics */
+  height: 100%; /* Make sure the viewer takes up the full height of its container */
+  border-radius: 1%;
+}
+
+.container_chair h5 {
+  text-align: justify; /* Centers text */
+  background-color: #FFFFFF;
+  color: #000000;
+  font-weight: 300;
+  margin-top: 5%;
+  font-size: 3vh;
+  padding: 2% 0 5% 0;
+}
+
+.container_chair img {
+  width: 100%;
+  height: auto;
+  object-fit:contain;
+}
+
+/* Chairperson Style */
+.chair_slide {
+  background-color: #FFCFBE; 
+  grid-template-columns: 0.4fr 1fr;
+  grid-area: hist_body;
+  display: grid;
+  gap: 5px;
+  padding: 5px;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+  margin-bottom: 1%;
+}
+
+.chair_slide .hist_body {
+  display: flex; /* Enables flexbox for centering */
+  flex-direction: column; /* Align items vertically */
+  justify-content: center; /* Vertically centers content */
+  align-items: left; /* Horizontally centers content */
+  text-align: justify; /* Centers text */
+  padding: 10px; /* Adds some padding for aesthetics */
+  overflow: hidden;
+}
+
+.chair_slide h1{
+  font-size:  2vw; /* Use variable for font size */
+  padding-left: 1%;
+  font-weight: bolder;
+  color: #FF6F3C; /* Use variable for font color */
+  padding-top: 2%;
+  margin-bottom: 3%;
+}
+
+.chair_slide h2{
+  font-size:  1.5vw; /* Use variable for font size */
+  padding-left: 1%;
+  font-weight: bolder;
+  color: #000000; /* Use variable for font color */
+  padding-bottom: 2%;
+  margin-bottom: 3%;
+}
+
+.chair_slide h3{
+  font-size:  1vw; /* Use variable for font size */
+  padding-left: 2%;
+  font-weight: normal;
+  color: #000000; /* Use variable for font color */
+  padding-bottom: 2%;
+  margin-bottom: 3%;
+  margin-right: 5%;
+}
+
 /* Responsive Design for Mobile */
 @media screen and (max-width: 1100px) {
   
