@@ -1067,6 +1067,7 @@ main .researchpage{
   display: flex; /* Enables flexbox for the list */
   flex-wrap: wrap; /* Allows items to wrap */
   justify-content: center; /* Centers the list items */
+  min-width: 90vw;
 }
 
 .res_link li {
@@ -1118,6 +1119,31 @@ main .researchpage{
 }
 
 .researchpage .linkcard span {
+  padding: 5%; /* Padding for text */
+  font-size: 2.5vh; /* Font size for text */
+  color: #333; /* Text color */
+  text-align: center; /* Center align text */
+  background-color: #FF6F3C; /* Background color for text */
+  color: white; /* Text color */
+  width: 100%; /* Ensure text background takes full width */
+  overflow: hidden;
+}
+
+.researchpage .linkcard2 {
+  display: flex;
+  flex-direction: column; /* Stack image and text vertically */
+  align-items: center; /* Center aligns the content */
+  text-decoration: none; /* Removes underline from links */
+  background-color: #ffffff; /* White background for card */
+  border: 1px solid #ccc; /* Light border for card */
+  border-radius: 2%; /* Rounded corners */
+  min-width: max-content;
+  width: 100%; /* Use full width of li */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow: hidden; /* Ensures no overflow */
+}
+
+.researchpage .linkcard2 span {
   padding: 5%; /* Padding for text */
   font-size: 2.5vh; /* Font size for text */
   color: #333; /* Text color */
@@ -1558,9 +1584,11 @@ main .faculty_site {
   align-items: stretch; /* Stretch to fill the container */
   text-align: justify; /* Centers text */
   background-color: #FFFFFF;
-  padding: 2%; /* Adds some padding for aesthetics */
+  padding: 1%; /* Adds some padding for aesthetics */
   height: 100%; /* Make sure the viewer takes up the full height of its container */
   border-radius: 1%;
+  overflow: auto;
+  
 }
 
 .container_chair h5 {
@@ -1632,6 +1660,43 @@ main .faculty_site {
   margin-bottom: 3%;
   margin-right: 5%;
 }
+
+.faculty_grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1%;
+  justify-content: center;
+  overflow: visible;
+}
+
+.faculty_card{
+  display: flex;
+  flex-direction: column; /* Stack image and text vertically */
+  align-items: center; /* Center aligns the content */
+  text-decoration: none; /* Removes underline from links */
+  background-color: #ffffff; /* White background for card */
+  border: 1px solid #ccc; /* Light border for card */
+  border-radius: 2%; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow: visible; /* Ensures no overflow */
+}
+
+.faculty_grid img {
+  width: 100%;
+  height: auto;
+  object-fit:cover;
+}
+
+.faculty_grid span {
+  font-size: 2vh; /* Font size for text */
+  margin: 5%;
+  text-align: center; /* Center align text */
+  background-color: #ffffff; /* Background color for text */
+  color: rgb(0, 0, 0); /* Text color */
+  overflow: visible;
+  line-height: 1.2;
+} 
+
 
 /* Responsive Design for Mobile */
 @media screen and (max-width: 1100px) {
