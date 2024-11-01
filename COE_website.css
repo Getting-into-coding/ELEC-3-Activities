@@ -1915,7 +1915,7 @@ grid-template-columns: auto;
 grid-template-rows: 
   auto
   auto
-  auto
+  30vw
   auto
   auto 
   auto;
