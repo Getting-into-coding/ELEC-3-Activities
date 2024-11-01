@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRMSU College of Engineering</title>
+    <link rel="stylesheet" href="COE_website.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/images/circular logo.png">
+</head>
+<body>
+    <!--Nav Bar-->
+    <nav>
+        <!-- Left Side Logo -->
+        <a class="logo">
+            <img id="logo" src="images/Header Logo.png" alt="College of Engineering">
+        </a>
+
+        <!-- Right Side: Search bar and Navigation Links -->
+        <div class="nav-right">
+            <!-- Search Bar -->
+            <form action="https://www.google.com/search" method="GET" class="search-form">
+                <input type="text" name="q" placeholder="Search the site..." aria-label="Search">
+                <input type="hidden" name="sitesearch" value="yoursite.com"> <!-- Replace with your domain -->
+                <button type="submit">Search</button>
+            </form>
+
+            <!-- Navigation Links -->
+            <ul>
+                <li><a href="COE_homepage.html">Home</a></li>
+                <li class="dropdown"><a href="COE_instruction.html">Instruction</a>
+                    <ul class="dropdown-content">
+                        <li><a href="COE_curricular.html">Curricular Offerings</a></li>
+                        <li><a href="COE_faculty.html">Faculty</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="COE_research.html">Research</a>
+                    <ul class="dropdown-content">
+                        <li><a href="COE_res_CE.html">BSCE Researches</a></li>
+                        <li><a href="COE_res_CpE.html">BSCpE Researches</a></li>
+                        <li><a href="COE_res_ME.html">BSME Researches</a></li>
+                        <li><a href="COE_res_EE.html">BSEE Researches</a></li>
+                        <li><a href="COE_res_EM.html">BSEM Researches</a></li>
+                    </ul>
+                </li>
+                <li><a href="COE_extension.html">Extension</a></li>
+                <li><a href="COE_history.html">History</a></li>
+            </ul>
+            <!-- Sidebar Toggle Button (visible only on mobile) -->
+            <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+            
+        </div>
+
+        <script type="text/javascript">
+            window.addEventListener("scroll", function(){
+                var nav = document.querySelector("nav");                
+                var logo = document.getElementById("logo");
+                
+                if (window.scrollY > 50) {
+                    nav.classList.add("sticky");
+                    logo.src = "images/Header Logo Minimized.png"; // Minimized logo when scrolled
+                } else {
+                    nav.classList.remove("sticky");
+                    logo.src = "images/Header Logo.png"; // Regular logo when at the top
+                }
+            
+            })
+        </script>
+    </nav>
+
+    <!-- Sidebar for mobile view -->
+    <div class="sidebar" id="mobileSidebar">
+        <!-- Sidebar Toggle Button (visible only on mobile) -->
+        <button class="sidebar-toggle" onclick="toggleSidebar()">✕</button>
+        <!-- Sidebar Navigation Links (copied from the main nav) -->
+        <ul class="sidebar-links">
+            <li><a href="COE_homepage.html">Home</a></li>
+            <li class="dropdown"><a href="COE_instruction.html">Instruction</a>
+                <ul class="dropdown-content">
+                    <li><a href="COE_curricular.html">Curricular Offerings</a></li>
+                    <li><a href="COE_faculty.html">Faculty</a></li>
+                </ul>
+            </li>
+            <li class="dropdown"><a href="COE_research.html">Research</a>
+                <ul class="dropdown-content">
+                    <li><a href="COE_res_CE.html">BSCE Researches</a></li>
+                    <li><a href="COE_res_CpE.html">BSCpE Researches</a></li>
+                    <li><a href="COE_res_ME.html">BSME Researches</a></li>
+                    <li><a href="COE_res_EE.html">BSEE Researches</a></li>
+                    <li><a href="COE_res_EM.html">BSEM Researches</a></li>
+                </ul>
+            </li>
+            <li><a href="COE_extension.html">Extension</a></li>
+            <li><a href="COE_history.html">History</a></li>
+        </ul>        
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("mobileSidebar");
+            if (sidebar.style.width === "0px" || sidebar.style.width === "") {
+                sidebar.style.width = "90vw";
+            } else {
+                sidebar.style.width = "0";
+            }
+        }
+    </script>
+
+    <!--Main Body-->
+    <main>
+        <section class="homepage">
+            <!--Pitch Tag-->
+            <section class="pitchtag">
+                <img id="pitchtag_web" src="images/Banner.png" alt="Banner">
+            </section>
+
+            <!-- Vision Mission Quality Policy -->
+            <section class="vision">
+                <div class="socotec">
+                    <img id="socotec" src="images/socotec.png" alt="SOCOTECH seal">
+                </div>
+                <div class="vismiss">
+                        <h1>Vision</h1>
+                        <p>
+                            PRMSU as a premier learner center and proactive university in a digital and global society.
+                        </p>
+                        <h1>Mission</h1>
+                        <p>
+                            The President Ramon Magsaysay State University shall primarily provide advance and 
+                            higher professional, technical, special instructions in various disciplines; 
+                            undertake research, extension, and income generation programs for sustainable 
+                            development of Zambales, the region, and the country. 
+                        </p>
+                    </div>
+                <div class="quality">
+                    <h1>Quality</h1>
+                        <p>
+                            The President Ramon Magsaysay State University is committed to continually strive 
+                            for excellence in instruction, research, extension and production to strengthen 
+                            global competitiveness adhering to quality standards for the utmost satisfaction of 
+                            its valued customers.
+                        </p>
+                </div>
+            </section>
+
+        <!-- Carousel Images -->
+            <section class="carousel">
+                <div class="slider">
+                    <div class="list">
+                        <div class="item">
+                            <img src="images/slide1.png" alt="Slide 1">
+                        </div>
+                        <div class="item">
+                            <img src="images/slide2.png" alt="Slide 2">
+                        </div>
+                        <div class="item">
+                            <img src="images/slide3.png" alt="Slide 3">
+                        </div>
+                        <div class="item">
+                            <img src="images/slide4.png" alt="Slide 4">
+                        </div>
+                        <div class="item">
+                            <img src="images/slide5.png" alt="Slide 5">
+                        </div>
+                        <div class="item">
+                            <img src="images/slide6.png" alt="Slide 6">
+                        </div>
+                        <div class="item">
+                            <img src="images/slide7.png" alt="Slide 7">
+                        </div>
+                        <div class="item">
+                            <img src="images/slide8.png" alt="Slide 8">
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button id="prev"><</button>
+                        <button id="next">></button>
+                    </div>
+                    <ul class="dots">
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </section>
+
+        <!-- Faculty and Featured Faculty -->
+            <section class="faculty">
+                <div class="faculty_link">
+                    <h1>Faculty</h1>
+                    <p>
+                        The CoE faculty features a diverse team of accomplished experts, bringing deep experience across engineering and scientific fields.
+                    </p>
+                    <li>
+                        <a href="COE_faculty.html">
+                        Faculty & Teaching Staff
+                        <img src="images/Ext Link Icon.svg" alt="External Link Icon" class="svg-icon">
+                        </a>
+                    </li>
+
+                </div>
+                <div class="featured_faculty">
+                    <div class="featured_pic">
+                        <img id="featured_pic" src="images/Featured Image.png" alt="Featured Faculty">
+                    </div>
+                    <div class="featured_info">
+                        <h3>Engr. Dennize Jianna R. Basilio</h3>
+                        <h2>Head of Software Engineering Elective</h2>
+                        <p>
+                            "A brilliant and dedicated leader. Her ability to simplify complex concepts and inspire innovation makes her highly respected by students and colleagues alike."
+                        </p>
+                    </div>
+                </div>
+            </section>
+        <!-- News and Information -->
+            <section class="news">
+                <div class="news_header">
+                    <h1>News & Information</h1>
+                </div>
+                <div class="news_body">
+                    <div class="card">
+                        <div class="card_1_image">
+                            <img id="card_1_image" src="images/machine_demo.png" alt="News 1 Image">
+                        </div>
+                        <div class="card_1_title">
+                            <h2>
+                                BSME Department awards and demonstrates 
+                                the Fish Crushing Machine to Laoag Kaunlaran
+                                Association
+                            </h2>
+                        </div>
+                        <div class="card_1_body">
+                            <p>
+                                "The BSME Department awards and demonstrates the Fish Crushing Machine to Laoag Kaunlaran Association 
+                                -Cooperative through the Regional Innovation Inclusive Cooperation Program between DTI, DOST, PRMSU and 
+                                MSMED Council on the 14th of October 2022. This is a realization of the objectives of TEAM-UP EXTENSION PROGRAM 
+                                parallel with the THRIVE agenda of the college with the goal, "A single step from COE, a hundred mouths fed in the 
+                                community through upscaling and upgrading livelihood activities of small and medium enterprises in the Province of Zambales". 
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card_2_image">
+                            <img id="card_2_image" src="images/exam.png" alt="News 1 Image">
+                        </div>
+                        <div class="card_2_title">
+                            <h2>
+                                COE conducts Orientation and Gender Sensitivity Training
+                            </h2>
+                        </div>
+                        <div class="card_2_body">
+                            <p>
+                                "The PRMSU College of Engineering conducted the 2nd Batch of Orientation and Gender and Development (GAD) / Gender Sensitivity Training 
+                                (GST) Seminar for Freshmen at the Science and Engineering Laboratory Building (SELB) Annex on October 20, 2022 with speakers Engr. Rue Lei 
+                                Balicaco and Engr. Cindy Dullas."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer_name">
+            <div class="PRMSU_footer">
+                <h1>
+                    PRMSU
+                </h1>
+            </div>
+            <div class="COE_footer">
+                <h1>
+                    College of Engineering
+                </h1>
+            </div>
+            
+        </div>
+        <div class="top_footer">
+            <div class="address">
+                <h2>
+                    Address
+                </h2>
+                 <h4>
+                    Zone 6 Baytan,
+                 </h4>
+                 <h4>
+                    Palanginan, Iba,
+                 </h4>
+                 <h4>
+                    Zambales, Philippines
+                 </h4>
+            </div>
+            <div class="social">
+                <h2>
+                    Social Media
+                </h2>
+                <li>
+                    <a href="https://www.facebook.com/prmsucoe">
+                    Facebook Page
+                    <img src="images/Ext Link Footer.svg" alt="External Link Icon" class="svg-icon-footer">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.facebook.com/THECOEFFICIENTSPRMSU">
+                    The COEfficients
+                    <img src="images/Ext Link Footer.svg" alt="External Link Icon" class="svg-icon-footer">
+                    </a>
+                </li>
+            </div>
+            <div class="contact">
+                <h2>
+                    Contact Us
+                </h2>
+                <h4>
+                    online.coe@prmsu.edu.ph
+                </h4>
+                <h4>
+                    (+63) 919 069 9177
+                </h4>
+            </div>
+        </div>
+        <div class="bot_footer">
+            <img id="logo" src="images/Circular Logo.png" alt="College of Engineering">
+            <h3>PRMSU College of Engineering © 2024 <br>
+                All rights reserved</h3>
+            <img id="logo" src="images/Empty.png" alt="College of Engineering">
+        </div>
+    </footer>
+    <!-- Script -->
+    <script src="COE_homepage.js"></script>
+</body>
+</html>
+
+<!--  .--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--.  -->
+<!-- / .. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \ -->
+<!-- \ \/\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ \/ / -->
+<!--  \/ /`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'\/ /  -->
+<!--  / /\                                                                            / /\  -->
+<!-- / /\ \     ___          _          _   _                                        / /\ \ -->
+<!-- \ \/ /    / __\___   __| | ___  __| | | |__  _   _ _                            \ \/ / -->
+<!--  \/ /    / /  / _ \ / _` |/ _ \/ _` | | '_ \| | | (_)                            \/ /  -->
+<!--  / /\   / /__| (_) | (_| |  __/ (_| | | |_) | |_| |_                             / /\  -->
+<!-- / /\ \  \____/\___/ \__,_|\___|\__,_| |_.__/ \__, (_)                           / /\ \ -->
+<!-- \ \/ /                                       |___/                              \ \/ / -->
+<!--  \/ /       ___            _      _   _____           _                          \/ /  -->
+<!--  / /\      /   \__ _ _ __ (_) ___| | / _  / __ _  ___| |__   __ _ _ __ _   _     / /\  -->
+<!-- / /\ \    / /\ / _` | '_ \| |/ _ \ | \// / / _` |/ __| '_ \ / _` | '__| | | |   / /\ \ -->
+<!-- \ \/ /   / /_// (_| | | | | |  __/ |  / //\ (_| | (__| | | | (_| | |  | |_| |   \ \/ / -->
+<!--  \/ /   /___,' \__,_|_| |_|_|\___|_| /____/\__,_|\___|_| |_|\__,_|_|   \__, |    \/ /  -->
+<!--  / /\                                                                  |___/     / /\  -->
+<!-- / /\ \                                              _                           / /\ \ -->
+<!-- \ \/ /    /\/\       /\/\   ___ _ __ ___ _   _ _ __(_) ___                      \ \/ / -->
+<!--  \/ /    /    \     /    \ / _ \ '__/ __| | | | '__| |/ _ \                      \/ /  -->
+<!--  / /\   / /\/\ \_  / /\/\ \  __/ | | (__| |_| | |  | | (_) |                     / /\  -->
+<!-- / /\ \  \/    \(_) \/    \/\___|_|  \___|\__,_|_|  |_|\___/                     / /\ \ -->
+<!-- \ \/ /                                                                          \ \/ / -->
+<!--  \/ /                                                                            \/ /  -->
+<!--  / /\.--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--..--./ /\  -->
+<!-- / /\ \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \.. \/\ \ -->
+<!-- \ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `'\ `' / -->
+<!--  `--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'`--'  -->
